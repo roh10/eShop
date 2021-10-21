@@ -32,12 +32,12 @@ jobs:
       - name: Azure Container Registry Login
         uses: Azure/docker-login@v1
         with:
-        # Container registry username
-        username: ${{ secrets.ACR_USER}} 
-        # Container registry password
-        password: ${{ secrets.ACR_PASSWORD}}
-        # Container registry server url
-        login-server: ${{ secrets.ACR_SERVER}}
+          # Container registry username
+          username: ${{ secrets.ACR_USER}} 
+          # Container registry password
+          password: ${{ secrets.ACR_PASSWORD}}
+          # Container registry server url
+          login-server: ${{ secrets.ACR_SERVER}}
         
       - run: | 
          docker build -f src/Web/Dockerfile . -t ${{ secrets.ACR_SERVER}}/eshop:${{ github.run_id}}
